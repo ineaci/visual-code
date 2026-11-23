@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<!-- ============================================ -->
+<!-- CONFIGURATION DE LA PAGE          -->
+<!-- ============================================ -->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inea Civaux — Photographe</title>
+
+  <!-- Polices élégantes (Google Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+
+  <!-- Lien vers le fichier de style -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ============================================ -->
+  <!-- EN-TÊTE : logo et menu de navigation         -->
+  <!-- ============================================ -->
+  <header>
+    <a href="#top" class="logo">Inea.C</a>
+    <nav>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#apropos">À propos</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- ============================================ -->
+  <!-- ACCUEIL : grand titre avec mon nom           -->
+  <!-- ============================================ -->
+  <section class="hero" id="top">
+    <p class="eyebrow">Photographe — Avignon</p>
+    <h1>Inea<br><em>Civaux</em></h1>
+    <p class="hero-note">Le monde à travers mes yeux</p>
+    <span class="scroll">Défiler ↓</span>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- 01 PORTFOLIO : galerie de mes photos         -->
+  <!-- ============================================ -->
+  <section class="portfolio" id="portfolio">
+
+    <!-- Titre de la section -->
+    <div class="section-titre">
+      <span class="numero">01</span>
+      <h2>Portfolio</h2>
+    </div>
+
+    <!-- Galerie : les 6 photos avec leurs légendes -->
+    <div class="galerie">
+      <figure class="p1"><img src="images/photo1.jpg" alt="Photo 1"><figcaption>Paris</figcaption></figure>
+      <figure class="p2"><img src="images/photo2.jpg" alt="Photo 2"><figcaption>Zoe</figcaption></figure>
+      <figure class="p3"><img src="images/photo3.jpg" alt="Photo 3"><figcaption>Commères</figcaption></figure>
+      <figure class="p4"><img src="images/photo4.jpg" alt="Photo 4"><figcaption>Majesté</figcaption></figure>
+      <figure class="p5"><img src="images/photo5.jpg" alt="Photo 5"><figcaption>Tutus</figcaption></figure>
+      <figure class="p6"><img src="images/photo6.jpg" alt="Photo 6"><figcaption>Speed</figcaption></figure>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- 02 À PROPOS : qui je suis, mon parcours      -->
+  <!-- ============================================ -->
+  <section class="apropos" id="apropos">
+
+    <!-- Mon portrait -->
+    <div class="portrait">
+      <img src="images/portrait.jpg" alt="Portrait d'Inea Civaux">
+    </div>
+
+    <!-- Mon texte de présentation -->
+    <div class="texte">
+
+      <!-- Titre de la section -->
+      <div class="section-titre">
+        <span class="numero">02</span>
+        <h2>À propos</h2>
+      </div>
+
+      <!-- Phrase d'accroche -->
+      <p class="accroche">Transmettre la réalité des choses, mais avec mon œil.</p>
+
+      <!-- Mon histoire -->
+      <p>Je m'appelle Inea, j'ai grandi à Lyon, là où j'ai commencé à mettre en avant la réalité comme je la voyais vraiment. J'ai commencé à 4 ans avec un appareil Hello Kitty, à prendre en photo mes modèles : ma maman, mon frère... Aujourd'hui, Hello Kitty s'est transformée en mon Nikon D5100, il ne me quitte jamais.</p>
+
+      <!-- Mes études et mon projet -->
+      <p>Étudiante en L3 Culture et Communication, je me destine à un master Mode et Communication, tourné vers le visuel, le design et l'artistique. La photographie est pour moi un langage : une façon de regarder, de raconter et de créer.</p>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- 03 CONTACT : email, formulaire, CV, réseaux  -->
+  <!-- ============================================ -->
+  <section class="contact" id="contact">
+    <span class="numero">03</span>
+    <h2>Travaillons <em>ensemble</em></h2>
+
+    <!-- Bouton email -->
+    <a href="mailto:ineaci@gmail.com" class="bouton">ineaci@gmail.com</a>
+
+    <!-- Formulaire de contact -->
+    <form class="formulaire" action="https://formspree.io/f/VOTRE_CODE" method="POST">
+      <input type="text" name="nom" placeholder="Votre nom" required>
+      <input type="email" name="email" placeholder="Votre email" required>
+      <textarea name="message" rows="3" placeholder="Votre message" required></textarea>
+      <button type="submit" class="bouton">Envoyer</button>
+    </form>
+
+    <!-- Lien vers mon CV -->
+    <p class="cv"><a href="cv-inea-civaux.pdf" target="_blank">Télécharger mon CV (PDF)</a></p>
+
+    <!-- Lien vers mon compte Instagram -->
+    <div class="reseaux">
+      <a href="https://www.instagram.com/macam_etmoi" target="_blank">Instagram @macam_etmoi</a>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- PIED DE PAGE : mentions de copyright         -->
+  <!-- ============================================ -->
+  <footer>
+    <p>© 2026 Inea Civaux — Tous droits réservés</p>
+  </footer>
+
+  <!-- ============================================ -->
+  <!-- VISIONNEUSE : photo agrandie au clic         -->
+  <!-- ============================================ -->
+  <div class="lightbox" id="lightbox">
+    <img src="" alt="">
+    <p class="lightbox-legende"></p>
+    <button class="lightbox-fermer" aria-label="Fermer">Fermer ✕</button>
+  </div>
+
+  <!-- Lien vers le fichier de code interactif -->
+  <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,438 @@
+/* ============================================ */
+/* COULEURS ET POLICES    */
+/* ============================================ */
+:root {
+  --noir: #111111;
+  --creme: #f4efe6;
+  --creme-fonce: #e6dfd2;
+  --gris: #6b665e;
+  --serif: 'Cormorant Garamond', serif;
+  --sans: 'Jost', sans-serif;
+}
+
+/* ============================================ */
+/* RÉGLAGES GÉNÉRAUX : page, texte, images      */
+/* ============================================ */
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--creme);
+  color: var(--noir);
+  font-family: var(--sans);
+  font-weight: 300;
+  line-height: 1.8;
+}
+
+img { display: block; width: 100%; }
+
+/* ============================================ */
+/* EN-TÊTE : logo et menu de navigation         */
+/* ============================================ */
+/* mix-blend-mode : le texte s'inverse selon le fond (noir sur crème, crème sur noir) */
+header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 50px;
+  color: white;
+  mix-blend-mode: difference;
+}
+
+header a {
+  color: inherit;
+  text-decoration: none;
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+.logo {
+  font-family: var(--serif);
+  font-size: 1.4rem !important;
+}
+
+nav a { margin-left: 36px; }
+
+nav a:hover { text-decoration: underline; text-underline-offset: 6px; }
+
+/* ============================================ */
+/* ACCUEIL : grand titre avec mon nom           */
+/* ============================================ */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  background: var(--noir);
+  color: var(--creme);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 50px;
+  overflow: hidden;
+}
+
+.eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  margin: 0 0 20px;
+  color: var(--creme-fonce);
+}
+
+.hero h1 {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(5rem, 18vw, 16rem);
+  line-height: 0.85;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+/* le second mot : lettres creuses, seulement le contour */
+.hero h1 em {
+  font-style: italic;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--creme);
+  padding-left: 12vw;
+}
+
+.hero-note {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.4rem;
+  margin: 40px 0 0 12vw;
+  color: var(--creme-fonce);
+}
+
+.scroll {
+  position: absolute;
+  bottom: 40px;
+  right: 50px;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+/* ============================================ */
+/* TITRES DE SECTION : numéro + grand titre     */
+/* ============================================ */
+.section-titre {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+}
+
+.numero {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--gris);
+}
+
+h2 {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  line-height: 1;
+  margin: 0;
+}
+
+/* ============================================ */
+/* 01 PORTFOLIO : galerie de photos             */
+/* ============================================ */
+.portfolio { padding: 140px 50px; }
+
+/* La grille de la galerie */
+.galerie {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 40px 30px;
+  margin-top: 80px;
+  align-items: start;
+}
+
+/* Les photos : noir et blanc, couleur au survol */
+figure { margin: 0; overflow: visible; }
+
+figure img {
+  height: 100%;
+  object-fit: cover;
+  background: var(--creme-fonce);   /* fond affiché tant que la photo manque */
+  filter: grayscale(100%);
+  transition: filter 0.6s, transform 0.6s;
+}
+
+figure:hover img {
+  filter: grayscale(0%);
+  transform: scale(1.02);
+}
+
+/* Les légendes sous les photos */
+figcaption {
+  margin-top: 12px;
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gris);
+}
+
+/* Taille et position de chaque photo : c'est ce qui crée l'effet artistique */
+.p1 { grid-column: 1 / 8;   aspect-ratio: 4 / 5; }
+.p2 { grid-column: 9 / 13;  aspect-ratio: 3 / 4; margin-top: 160px; }
+.p3 { grid-column: 2 / 6;   aspect-ratio: 3 / 4; }
+.p4 { grid-column: 7 / 13;  aspect-ratio: 16 / 11; margin-top: 100px; }
+.p5 { grid-column: 1 / 5;   aspect-ratio: 1 / 1; }
+.p6 { grid-column: 6 / 12;  aspect-ratio: 4 / 5; margin-top: 80px; }
+
+/* Les figures contiennent l'image + la légende : on fixe la hauteur de l'image */
+.galerie figure { display: flex; flex-direction: column; }
+.galerie figure img { flex: 1; min-height: 0; }
+
+/* ============================================ */
+/* 02 À PROPOS : portrait et texte              */
+/* ============================================ */
+.apropos {
+  display: grid;
+  grid-template-columns: 5fr 6fr;
+  gap: 100px;
+  align-items: center;
+  padding: 140px 50px;
+  background: var(--creme-fonce);
+}
+
+/* Le portrait, avec un cadre décalé derrière */
+.portrait { position: relative; }
+
+.portrait::before {
+  content: "";
+  position: absolute;
+  top: 25px; left: -25px;
+  width: 100%; height: 100%;
+  border: 1px solid var(--noir);
+}
+
+.portrait img {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  background: var(--creme);
+  filter: grayscale(100%);
+}
+
+/* Le texte de présentation */
+.texte .section-titre { margin-bottom: 40px; }
+
+.accroche {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.9rem;
+  line-height: 1.3;
+  margin: 0 0 30px;
+}
+
+.texte p { color: var(--gris); max-width: 520px; }
+
+/* ============================================ */
+/* 03 CONTACT : fond noir, bouton email, réseaux */
+/* ============================================ */
+.contact {
+  background: var(--noir);
+  color: var(--creme);
+  text-align: center;
+  padding: 160px 20px;
+}
+
+.contact h2 { margin: 20px 0 60px; }
+.contact h2 em { font-style: italic; }
+.contact .numero { color: var(--creme-fonce); }
+
+/* Le bouton (email, envoyer) */
+.bouton {
+  display: inline-block;
+  padding: 18px 48px;
+  border: 1px solid var(--creme);
+  color: var(--creme);
+  text-decoration: none;
+  font-size: 0.8rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  transition: all 0.3s;
+}
+
+.bouton:hover { background: var(--creme); color: var(--noir); }
+
+/* Le lien Instagram */
+.reseaux { margin-top: 50px; }
+
+.reseaux a {
+  margin: 0 18px;
+  color: var(--creme-fonce);
+  text-decoration: none;
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+.reseaux a:hover { color: white; text-decoration: underline; text-underline-offset: 6px; }
+
+/* ============================================ */
+/* FORMULAIRE DE CONTACT : champs et bouton     */
+/* ============================================ */
+.formulaire {
+  max-width: 340px;
+  margin: 40px auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Les champs : seulement une ligne en dessous */
+.formulaire input,
+.formulaire textarea {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--gris);
+  padding: 8px 0;
+  color: var(--creme);
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: 0.85rem;
+  resize: none;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.formulaire input::placeholder,
+.formulaire textarea::placeholder {
+  color: var(--gris);
+  letter-spacing: 0.1em;
+}
+
+/* Quand on clique dans un champ, la ligne devient crème */
+.formulaire input:focus,
+.formulaire textarea:focus {
+  border-bottom-color: var(--creme);
+}
+
+/* Le bouton « Envoyer » */
+.formulaire .bouton {
+  align-self: center;
+  margin-top: 16px;
+  padding: 12px 32px;
+  font-size: 0.7rem;
+  background: transparent;
+  cursor: pointer;
+  font-family: var(--sans);
+}
+
+.formulaire .bouton:hover {
+  background: var(--creme);
+  color: var(--noir);
+}
+
+/* ============================================ */
+/* LIEN CV : télécharger mon CV                 */
+/* ============================================ */
+.cv { margin: 50px 0 0; }
+
+.cv a {
+  color: var(--creme);
+  text-decoration: none;
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--creme);
+  padding-bottom: 4px;
+}
+
+.cv a:hover { color: white; border-bottom-color: white; }
+
+/* ============================================ */
+/* PIED DE PAGE : mentions de copyright         */
+/* ============================================ */
+footer {
+  background: var(--noir);
+  color: var(--gris);
+  text-align: center;
+  padding: 30px 20px;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  border-top: 1px solid #2a2a2a;
+}
+
+footer p { margin: 0; }
+
+/* ============================================ */
+/* VISIONNEUSE : photo agrandie au clic         */
+/* ============================================ */
+.galerie figure { cursor: zoom-in; }
+
+/* Le fond noir qui recouvre la page */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  background: rgba(17, 17, 17, 0.96);
+  cursor: zoom-out;
+}
+
+.lightbox.ouverte { display: flex; }
+
+/* La photo en grand */
+.lightbox img {
+  width: auto;
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+}
+
+/* La légende sous la photo */
+.lightbox-legende {
+  margin: 24px 0 0;
+  color: var(--creme);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.4rem;
+}
+
+/* Le bouton « Fermer » */
+.lightbox-fermer {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  background: none;
+  border: none;
+  color: var(--creme-fonce);
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+/* ============================================ */
+/* TÉLÉPHONE : adaptation aux petits écrans     */
+/* (toujours à la fin du fichier)               */
+/* ============================================ */
+@media (max-width: 800px) {
+  header { padding: 20px; }
+  nav a { margin-left: 18px; }
+  .hero, .portfolio, .apropos { padding-left: 20px; padding-right: 20px; }
+
+  .galerie { display: flex; flex-direction: column; gap: 40px; }
+  .galerie figure { margin-top: 0 !important; }
+
+  .apropos { grid-template-columns: 1fr; gap: 60px; }
+  .portrait::before { left: -12px; top: 12px; }
+}
