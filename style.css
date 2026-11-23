@@ -1,33 +1,35 @@
 /* Couleurs et polices */
 /* les variables : on les définit une fois ici, puis on les réutilise partout avec var(--nom) */
 :root {
-  --noir: #111111;                  /* le noir un peu adouci, utilisé pour le texte et les fonds sombres */
-  --creme: #f4efe6;                 /* couleur du fond principal du site */
-  --creme-fonce: #e6dfd2;           /* blanc crème plus foncé pour les fonds secondaires */
-  --gris: #6b665e;                  /* le gris chaud pour les textes discrets et les légendes */
-  --display: 'Bodoni Moda', 'Cormorant Garamond', serif;   /* uniquement pour mon nom */
-  --serif: 'Cormorant Garamond', serif;                    /* la police des titres */
-  --sans: 'Jost', sans-serif;                              /* la police du texte courant */
+  --noir: #24231b;                  /* noir chaud, pour le texte et les fonds sombres */
+  --creme: #f3f0e6;                 /* fond principal du site */
+  --creme-fonce: #e4e0d0;           /* fond secondaire */
+  --papier: #faf8f2;                /* blanc cassé des encarts */
+  --gris: #6e6b5c;                  /* gris chaud pour les textes discrets */
+  --olive: #6c6c4c;                 /* vert olive de l'inspiration */
+  --olive-fonce: #4f503a;           /* olive plus sombre (contact, survols) */
+  --rose: #c48f84;                  /* rose poudré pour les numéros */
+
+  --nom-prenom: 'Cormorant Garamond', serif;    /* police de « Inea » */
+  --nom-famille: 'Cormorant Garamond', serif;   /* police de « Civaux » : change seulement cette ligne pour tester une autre */
+  --serif: 'Cormorant Garamond', serif;         /* titres */
+  --sans: 'Jost', sans-serif;                   /* texte courant */
 }
 
-/* Réglages généraux : page, texte, images */
-/* le padding et la bordure sont comptés dans la taille des éléments, ce qui évite les débordements */
+/* Réglages généraux */
 * { box-sizing: border-box; }
 
-/* quand on clique sur un lien du menu, la page défile en douceur au lieu de sauter */
 html { scroll-behavior: smooth; }
 
-/* le style de base de toute la page */
 body {
-  margin: 0;                        /* on enlève la marge par défaut du navigateur */
+  margin: 0;
   background: var(--creme);
   color: var(--noir);
   font-family: var(--sans);
-  font-weight: 300;                 /* police fine */
-  line-height: 1.8;                 /* espace entre les lignes de texte pour que ce soit aéré */
+  font-weight: 300;
+  line-height: 1.8;
 }
 
-/* toutes les images prennent la largeur de leur zone, et display: block enlève le petit espace sous les images */
 img { display: block; width: 100%; }
 
 /* Apparition au scroll : cachés au départ, puis visibles */
@@ -37,19 +39,18 @@ img { display: block; width: 100%; }
   transition: opacity 0.9s ease, transform 0.9s ease;
 }
 
-/* quand le JavaScript ajoute "visible", l'élément remonte à sa place et apparaît */
 .reveal.visible {
   opacity: 1;
   transform: none;
 }
 
-/* En-tête : logo et menu de navigation */
-/* mix-blend-mode : le texte s'inverse selon le fond (noir sur crème, crème sur noir) */
+/* En-tête : logo et menu */
+/* mix-blend-mode : le texte s'inverse selon le fond */
 body > header {
-  position: fixed;                  /* l'en-tête reste collé en haut quand on descend */
-  top: 0; left: 0; right: 0;        /* il prend toute la largeur de l'écran */
-  z-index: 10;                      /* il passe au-dessus des autres éléments */
-  display: flex;                    /* logo à gauche, menu à droite */
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 10;
+  display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 30px 50px;
@@ -57,42 +58,36 @@ body > header {
   mix-blend-mode: difference;
 }
 
-/* les liens de l'en-tête : petits, espacés et en majuscules */
 body > header a {
-  color: inherit;                   /* ils gardent la couleur de l'en-tête */
-  text-decoration: none;            /* on enlève le soulignement */
+  color: inherit;
+  text-decoration: none;
   font-size: 0.75rem;
-  letter-spacing: 0.3em;            /* espace entre les lettres */
+  letter-spacing: 0.3em;
   text-transform: uppercase;
 }
 
-/* le logo est plus grand et en police serif ; le !important force la taille malgré la règle juste au-dessus */
 .logo {
   font-family: var(--serif);
   font-size: 1.4rem !important;
 }
 
-/* on espace les liens du menu entre eux */
 nav a { margin-left: 36px; }
 
-/* au survol, le lien se souligne un peu plus bas que d'habitude */
 nav a:hover { text-decoration: underline; text-underline-offset: 6px; }
 
 /* Accueil : grand titre avec mon nom */
-/* la section prend toute la hauteur de l'écran, fond noir, contenu centré verticalement */
 .hero {
-  position: relative;               /* sert de repère pour placer "Défiler" en bas */
-  min-height: 100vh;                /* 100vh = toute la hauteur de l'écran */
+  position: relative;
+  min-height: 100vh;
   background: var(--noir);
   color: var(--creme);
   display: flex;
-  flex-direction: column;           /* les éléments sont empilés les uns sous les autres */
+  flex-direction: column;
   justify-content: center;
   padding: 0 50px;
-  overflow: hidden;                 /* ce qui dépasse est coupé */
+  overflow: hidden;
 }
 
-/* la petite ligne au-dessus du nom (Photographe — Avignon) */
 .eyebrow {
   font-size: 0.75rem;
   letter-spacing: 0.4em;
@@ -101,36 +96,35 @@ nav a:hover { text-decoration: underline; text-underline-offset: 6px; }
   color: var(--creme-fonce);
 }
 
-/* Mon nom : Bodoni Moda, élégant et très contrasté */
+/* « Inea » : Cormorant Garamond fin, droit */
 .hero h1 {
-  font-family: var(--display);
-  font-weight: 400;
-  font-size: clamp(4.5rem, 16vw, 14rem);   /* la taille s'adapte à l'écran, entre un minimum et un maximum */
-  line-height: 0.9;                 /* les deux lignes du nom sont très rapprochées */
+  font-family: var(--nom-prenom);
+  font-weight: 300;
+  font-size: clamp(4.5rem, 16vw, 14rem);
+  line-height: 0.9;
   margin: 0;
-  letter-spacing: -0.03em;          /* lettres légèrement resserrées */
+  letter-spacing: -0.01em;
 }
 
-/* le second mot : italique, lettres creuses, seulement le contour */
+/* « Civaux » : italique, lettres pleines, décalé vers la droite */
 .hero h1 em {
+  font-family: var(--nom-famille);
   font-style: italic;
-  color: transparent;                       /* l'intérieur des lettres est transparent */
-  -webkit-text-stroke: 1px var(--creme);    /* on dessine seulement le contour, d'1 pixel */
-  padding-left: 12vw;                       /* on décale "Civaux" vers la droite */
+  font-weight: 300;
+  color: var(--creme);
+  padding-left: 12vw;
 }
 
-/* la phrase « Le monde à travers mes yeux » */
 .hero-note {
   font-family: var(--serif);
   font-style: italic;
   font-size: 1.4rem;
-  margin: 40px 0 0 12vw;            /* alignée avec le décalage de "Civaux" */
+  margin: 40px 0 0 12vw;
   color: var(--creme-fonce);
 }
 
-/* « Défiler ↓ » : placé en bas à droite de l'accueil */
 .scroll {
-  position: absolute;               /* positionné par rapport à .hero */
+  position: absolute;
   bottom: 40px;
   right: 50px;
   font-size: 0.7rem;
@@ -139,63 +133,54 @@ nav a:hover { text-decoration: underline; text-underline-offset: 6px; }
 }
 
 /* Titres de section : numéro + grand titre */
-/* le numéro et le titre sont côte à côte, alignés sur la base du texte */
 .section-titre {
   display: flex;
   align-items: baseline;
   gap: 20px;
 }
 
-/* le petit numéro (01, 02, 03) en italique et en gris */
+/* le numéro est maintenant en rose poudré */
 .numero {
   font-family: var(--serif);
   font-style: italic;
   font-size: 1.2rem;
-  color: var(--gris);
+  color: var(--rose);
 }
 
-/* tous les grands titres de section */
 h2 {
   font-family: var(--serif);
   font-weight: 300;
-  font-size: clamp(2.5rem, 6vw, 4.5rem);   /* taille qui s'adapte à l'écran */
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
   line-height: 1;
   margin: 0;
 }
 
 /* 01 Portfolio : galerie de photos */
-/* de grands espaces au-dessus et en dessous de la section */
 .portfolio { padding: 140px 50px; }
 
-/* La grille de la galerie */
-/* la grille est découpée en 12 colonnes égales, et chaque photo choisit où elle se place */
 .galerie {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  gap: 40px 30px;                   /* 40px entre les lignes, 30px entre les colonnes */
+  gap: 40px 30px;
   margin-top: 80px;
-  align-items: start;               /* les photos sont alignées en haut de leur case */
+  align-items: start;
 }
 
-/* Les photos : noir et blanc, couleur au survol */
-/* overflow: visible laisse la photo dépasser un peu quand elle grossit au survol */
 figure { margin: 0; overflow: visible; }
 
 figure img {
   height: 100%;
-  object-fit: cover;                /* la photo remplit le cadre sans être déformée (elle est recadrée) */
-  background: var(--creme-fonce);   /* fond affiché tant que la photo manque */
-  filter: grayscale(100%);          /* la photo est en noir et blanc */
-  transition: filter 0.6s, transform 0.6s;   /* le changement se fait en douceur */
+  object-fit: cover;
+  background: var(--creme-fonce);
+  filter: grayscale(100%);
+  transition: filter 0.6s, transform 0.6s;
 }
 
-/* au survol : la couleur revient et la photo grossit légèrement */
 figure:hover img {
   filter: grayscale(0%);
   transform: scale(1.02);
 }
 
-/* Les légendes sous les photos */
 figcaption {
   margin-top: 12px;
   font-size: 0.7rem;
@@ -204,10 +189,6 @@ figcaption {
   color: var(--gris);
 }
 
-/* Taille et position de chaque photo : c'est ce qui crée l'effet artistique */
-/* grid-column : de quelle colonne à quelle colonne la photo s'étend */
-/* aspect-ratio : les proportions de la photo (largeur / hauteur) */
-/* margin-top : décale la photo vers le bas pour casser l'alignement */
 .p1 { grid-column: 1 / 8;   aspect-ratio: 4 / 5; }
 .p2 { grid-column: 9 / 13;  aspect-ratio: 3 / 4; margin-top: 160px; }
 .p3 { grid-column: 2 / 6;   aspect-ratio: 3 / 4; }
@@ -215,35 +196,30 @@ figcaption {
 .p5 { grid-column: 1 / 5;   aspect-ratio: 1 / 1; }
 .p6 { grid-column: 6 / 12;  aspect-ratio: 4 / 5; margin-top: 80px; }
 
-/* Les figures contiennent l'image + la légende : on fixe la hauteur de l'image */
-/* l'image prend tout l'espace restant au-dessus de la légende */
 .galerie figure { display: flex; flex-direction: column; }
 .galerie figure img { flex: 1; min-height: 0; }
 
 /* 02 À propos : portrait et texte */
-/* deux colonnes : le portrait (5 parts) et le texte (6 parts), sur un fond crème plus foncé */
 .apropos {
   display: grid;
   grid-template-columns: 5fr 6fr;
   gap: 100px;
-  align-items: center;              /* le portrait et le texte sont centrés verticalement */
+  align-items: center;
   padding: 140px 50px;
   background: var(--creme-fonce);
 }
 
-/* Le portrait, avec un cadre décalé derrière */
 .portrait { position: relative; }
 
-/* ce faux élément dessine un cadre vide, décalé vers le bas et la gauche, derrière la photo */
+/* le cadre décalé derrière le portrait est maintenant olive */
 .portrait::before {
   content: "";
   position: absolute;
   top: 25px; left: -25px;
   width: 100%; height: 100%;
-  border: 1px solid var(--noir);
+  border: 1px solid var(--olive);
 }
 
-/* la photo est en noir et blanc, et position: relative la place au-dessus du cadre */
 .portrait img {
   position: relative;
   aspect-ratio: 3 / 4;
@@ -252,11 +228,8 @@ figcaption {
   filter: grayscale(100%);
 }
 
-/* Le texte de présentation */
-/* espace sous le titre de la section */
 .texte .section-titre { margin-bottom: 40px; }
 
-/* la phrase d'accroche : grande, en italique */
 .accroche {
   font-family: var(--serif);
   font-style: italic;
@@ -265,26 +238,20 @@ figcaption {
   margin: 0 0 30px;
 }
 
-/* les paragraphes sont en gris et ne dépassent pas 520px de large pour rester faciles à lire */
 .texte p { color: var(--gris); max-width: 520px; }
 
-/* 03 Contact : fond noir, bouton email, réseaux */
-/* toute la section est centrée, sur fond noir */
+/* 03 Contact : fond vert olive foncé */
 .contact {
-  background: var(--noir);
+  background: var(--olive-fonce);
   color: var(--creme);
   text-align: center;
   padding: 160px 20px;
 }
 
-/* le titre "Travaillons ensemble" avec de l'espace autour, et "ensemble" en italique */
 .contact h2 { margin: 20px 0 60px; }
 .contact h2 em { font-style: italic; }
-/* le numéro 03 est plus clair pour être lisible sur fond noir */
 .contact .numero { color: var(--creme-fonce); }
 
-/* Le bouton (email, envoyer) */
-/* un bouton avec seulement un contour crème, sans fond */
 .bouton {
   display: inline-block;
   padding: 18px 48px;
@@ -294,13 +261,11 @@ figcaption {
   font-size: 0.8rem;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  transition: all 0.3s;             /* tous les changements (couleurs) se font en douceur */
+  transition: all 0.3s;
 }
 
-/* au survol, le bouton se remplit de crème et le texte devient noir */
 .bouton:hover { background: var(--creme); color: var(--noir); }
 
-/* Le lien Instagram */
 .reseaux { margin-top: 50px; }
 
 .reseaux a {
@@ -312,71 +277,62 @@ figcaption {
   text-transform: uppercase;
 }
 
-/* au survol, le lien devient blanc et se souligne */
 .reseaux a:hover { color: white; text-decoration: underline; text-underline-offset: 6px; }
 
-/* Formulaire de contact : champs et bouton */
-/* le formulaire est étroit, centré, et les champs sont empilés les uns sous les autres */
+/* Formulaire de contact */
 .formulaire {
   max-width: 340px;
-  margin: 40px auto 0;              /* auto à gauche et à droite = centré */
+  margin: 40px auto 0;
   display: flex;
   flex-direction: column;
   gap: 14px;
 }
 
-/* Les champs : seulement une ligne en dessous */
-/* pas de fond, pas de cadre, juste un trait sous le champ */
+/* sur fond olive, les lignes et les textes d'exemple sont en crème transparent pour rester lisibles */
 .formulaire input,
 .formulaire textarea {
   background: transparent;
   border: none;
-  border-bottom: 1px solid var(--gris);
+  border-bottom: 1px solid rgba(243, 240, 230, 0.4);
   padding: 8px 0;
   color: var(--creme);
   font-family: var(--sans);
   font-weight: 300;
   font-size: 0.85rem;
-  resize: none;                     /* on empêche de redimensionner la zone de message */
-  outline: none;                    /* on enlève le contour que le navigateur ajoute au clic */
+  resize: none;
+  outline: none;
   transition: border-color 0.3s;
 }
 
-/* le texte d'exemple dans les champs (Votre nom, Votre email...) est en gris */
 .formulaire input::placeholder,
 .formulaire textarea::placeholder {
-  color: var(--gris);
+  color: rgba(243, 240, 230, 0.6);
   letter-spacing: 0.1em;
 }
 
-/* Quand on clique dans un champ, la ligne devient crème */
 .formulaire input:focus,
 .formulaire textarea:focus {
   border-bottom-color: var(--creme);
 }
 
-/* Le bouton « Envoyer » */
-/* il reprend le style de .bouton mais en plus petit et centré */
 .formulaire .bouton {
   align-self: center;
   margin-top: 16px;
   padding: 12px 32px;
   font-size: 0.7rem;
   background: transparent;
-  cursor: pointer;                  /* la main apparaît au survol */
-  font-family: var(--sans);         /* un <button> n'hérite pas de la police, il faut la préciser */
+  cursor: pointer;
+  font-family: var(--sans);
 }
 
-/* même effet de remplissage au survol que les autres boutons */
 .formulaire .bouton:hover {
   background: var(--creme);
   color: var(--noir);
 }
 
-/* Lien CV : télécharger mon CV */
+/* Lien CV */
 .cv { margin: 50px 0 0; }
 
-/* le lien est souligné par une bordure crème, pas par le soulignement classique */
 .cv a {
   color: var(--creme);
   text-decoration: none;
@@ -384,13 +340,12 @@ figcaption {
   letter-spacing: 0.3em;
   text-transform: uppercase;
   border-bottom: 1px solid var(--creme);
-  padding-bottom: 4px;              /* espace entre le texte et la ligne */
+  padding-bottom: 4px;
 }
 
 .cv a:hover { color: white; border-bottom-color: white; }
 
-/* Pied de page : mentions de copyright */
-/* fond noir, texte gris discret, séparé du reste par une fine ligne en haut */
+/* Pied de page */
 footer {
   background: var(--noir);
   color: var(--gris);
@@ -399,44 +354,37 @@ footer {
   font-size: 0.7rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  border-top: 1px solid #2a2a2a;
+  border-top: 1px solid #2f2e24;
 }
 
-/* on enlève la marge du paragraphe pour que le texte soit bien centré dans le pied de page */
 footer p { margin: 0; }
 
 /* Visionneuse : photo agrandie au clic */
-/* le curseur en loupe (+) indique qu'on peut cliquer pour agrandir */
 .galerie figure,
 .galerie-projet figure { cursor: zoom-in; }
 
-/* Le fond noir qui recouvre la page */
-/* inset: 0 étire la boîte sur tout l'écran ; elle est cachée (display: none) tant qu'on n'a pas cliqué */
 .lightbox {
   position: fixed;
   inset: 0;
-  z-index: 100;                     /* au-dessus de tout, même de l'en-tête */
+  z-index: 100;
   display: none;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 40px 20px;
-  background: rgba(17, 17, 17, 0.96);   /* noir presque opaque */
-  cursor: zoom-out;                 /* le curseur indique qu'un clic referme la photo */
+  background: rgba(36, 35, 27, 0.96);
+  cursor: zoom-out;
 }
 
-/* quand le JavaScript ajoute la classe "ouverte", la boîte devient visible */
 .lightbox.ouverte { display: flex; }
 
-/* La photo en grand */
 .lightbox img {
   width: auto;
   max-width: 100%;
-  max-height: 80vh;                 /* elle ne dépasse jamais 80% de la hauteur de l'écran */
-  object-fit: contain;              /* la photo entière est visible, sans être coupée */
+  max-height: 80vh;
+  object-fit: contain;
 }
 
-/* La légende sous la photo */
 .lightbox-legende {
   margin: 24px 0 0;
   color: var(--creme);
@@ -445,8 +393,6 @@ footer p { margin: 0; }
   font-size: 1.4rem;
 }
 
-/* Le bouton « Fermer » */
-/* placé en haut à droite de l'écran, sans fond ni bordure */
 .lightbox-fermer {
   position: absolute;
   top: 30px;
@@ -461,13 +407,12 @@ footer p { margin: 0; }
   cursor: pointer;
 }
 
-/* Page projets : titre, filtres et cartes */
+/* Page projets : titre, filtres et encarts */
 .projets-page {
   min-height: 100vh;
-  padding: 180px 50px 140px;   /* grand espace en haut pour l'en-tête fixe */
+  padding: 180px 50px 140px;
 }
 
-/* la phrase sous le titre, en grand et en italique */
 .projets-intro {
   margin: 30px 0 50px;
   color: var(--gris);
@@ -476,8 +421,7 @@ footer p { margin: 0; }
   font-size: 1.5rem;
 }
 
-/* Les rangées de boutons de filtre */
-/* flex-wrap permet aux boutons de passer à la ligne s'il n'y a plus de place */
+/* Rangées de boutons de filtre */
 .filtres {
   display: flex;
   flex-wrap: wrap;
@@ -486,18 +430,15 @@ footer p { margin: 0; }
   margin: 0 0 22px;
 }
 
-/* Petit mot devant chaque rangée (« Origine », « Type ») */
-/* ::before ajoute du texte avant le contenu ; attr(data-etiquette) va chercher le mot écrit dans le HTML */
 .filtres::before {
   content: attr(data-etiquette);
   min-width: 80px;
   font-family: var(--serif);
   font-style: italic;
   font-size: 1.1rem;
-  color: var(--gris);
+  color: var(--rose);
 }
 
-/* un bouton de filtre : sans fond, avec une bordure invisible qui deviendra visible quand il est actif */
 .filtre {
   background: none;
   border: none;
@@ -512,86 +453,111 @@ footer p { margin: 0; }
   transition: color 0.3s, border-color 0.3s;
 }
 
-/* au survol, le texte devient noir */
 .filtre:hover { color: var(--noir); }
 
-/* Le filtre sélectionné est souligné */
 .filtre.actif {
   color: var(--noir);
-  border-bottom-color: var(--noir);
+  border-bottom-color: var(--olive);
 }
 
-/* La grille : 2 colonnes sur ordinateur */
+/* La grille : 2 colonnes d'encarts sur ordinateur */
 .projets-liste {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);   /* 2 colonnes de même largeur */
-  gap: 70px 50px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 50px;
   margin-top: 60px;
 }
 
-/* Une carte projet (c'est un lien cliquable) */
-/* on enlève la couleur et le soulignement bleu habituels des liens */
+/* Un encart : cadre olive, fond papier, et un second filet fin à l'intérieur */
 .projet {
+  position: relative;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 44px 40px 48px;
+  background: var(--papier);
+  border: 1px solid var(--olive);
   color: inherit;
   text-decoration: none;
 }
 
-/* Le cadre de l'image coupe le zoom au survol */
-/* sans ça, l'image qui grossit dépasserait de son cadre */
-.projet-image { overflow: hidden; }
+/* le filet intérieur (ne bloque pas le clic grâce à pointer-events) */
+.projet::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border: 1px solid rgba(108, 108, 76, 0.35);
+  pointer-events: none;
+}
 
-/* l'image de la carte : proportions 4/3, en noir et blanc */
+/* La photo façon polaroid : cadre blanc, plus épais en bas, légère ombre */
+.projet-image {
+  width: 100%;
+  max-width: 420px;
+  padding: 10px 10px 36px;
+  background: #fff;
+  box-shadow: 0 10px 28px rgba(36, 35, 27, 0.14);
+}
+
+/* un encart sur deux est penché dans l'autre sens */
+.projet:nth-child(odd) .projet-image  { transform: rotate(-1.2deg); }
+.projet:nth-child(even) .projet-image { transform: rotate(1.2deg); }
+
 .projet img {
   aspect-ratio: 4 / 3;
   object-fit: cover;
-  background: var(--creme-fonce);   /* fond affiché tant que l'image manque */
+  background: var(--creme-fonce);
   filter: grayscale(100%);
-  transition: filter 0.6s, transform 0.8s;
+  transition: filter 0.6s;
 }
 
-/* au survol de la carte : la couleur revient et l'image grossit un peu */
-.projet:hover img {
-  filter: grayscale(0%);
-  transform: scale(1.04);
+.projet:hover img { filter: grayscale(0%); }
+
+.projet-infos {
+  padding-top: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* l'espace entre l'image et le texte de la carte */
-.projet-infos { padding-top: 24px; }
+/* le numéro 01, 02... en rose poudré */
+.projet-numero {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: var(--rose);
+}
 
-/* Ligne « badge + type · année » (cartes et page de détail) */
 .projet-meta {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
+  margin-top: 14px;
 }
 
-/* Les badges : plein pour Perso, vide pour Fac */
-/* le style commun aux deux badges : petit cadre avec texte en majuscules */
 .badge {
   padding: 2px 14px;
-  border: 1px solid var(--noir);
+  border: 1px solid var(--olive);
   font-size: 0.65rem;
   letter-spacing: 0.25em;
   text-transform: uppercase;
   line-height: 1.8;
 }
 
-/* badge Perso : fond noir, texte crème */
 .badge-perso {
-  background: var(--noir);
+  background: var(--olive);
   color: var(--creme);
 }
 
-/* badge Fac : fond transparent, texte noir (juste le cadre) */
 .badge-fac {
   background: transparent;
-  color: var(--noir);
+  color: var(--olive);
 }
 
-/* le texte « Photographie · 2026 » à côté du badge */
 .projet-type {
   font-size: 0.7rem;
   letter-spacing: 0.25em;
@@ -599,41 +565,39 @@ footer p { margin: 0; }
   color: var(--gris);
 }
 
-/* le titre de la carte */
+/* le titre en italique, comme dans l'inspiration */
 .projet h3 {
   font-family: var(--serif);
-  font-weight: 300;
-  font-size: 2rem;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 2.1rem;
   line-height: 1.1;
   margin: 14px 0;
 }
 
-/* le résumé de la carte, limité à 480px de large */
-.projet p { margin: 0 0 18px; color: var(--gris); max-width: 480px; }
+.projet p { margin: 0 0 26px; color: var(--gris); max-width: 420px; }
 
-/* le lien « Voir le projet → » souligné par une bordure */
+/* le bouton « Voir le projet » en pastille olive */
 .projet-lien {
   display: inline-block;
-  font-size: 0.75rem;
-  letter-spacing: 0.3em;
+  padding: 10px 30px;
+  border-radius: 999px;
+  background: var(--olive);
+  color: var(--creme);
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
-  border-bottom: 1px solid var(--noir);
-  padding-bottom: 4px;
-  transition: letter-spacing 0.4s;
+  transition: background 0.3s;
 }
 
-/* au survol de la carte, les lettres du lien s'écartent un peu */
-.projet:hover .projet-lien { letter-spacing: 0.4em; }
+.projet:hover .projet-lien { background: var(--olive-fonce); }
 
 /* Un projet filtré disparaît */
-/* cette classe est ajoutée par projets.js quand la carte ne correspond pas au filtre choisi */
 .projet.cache { display: none; }
 
 /* Page de détail d'un projet */
-/* grand espace en haut pour laisser la place à l'en-tête fixe */
 .detail-page { padding: 180px 50px 120px; }
 
-/* Lien « retour » en haut */
 .detail-retour {
   color: var(--gris);
   text-decoration: none;
@@ -644,10 +608,8 @@ footer p { margin: 0; }
 
 .detail-retour:hover { color: var(--noir); }
 
-/* Titre du projet */
 .detail-entete { margin: 50px 0 60px; }
 
-/* le grand titre du projet, qui s'adapte à la taille de l'écran */
 .detail-entete h1 {
   font-family: var(--serif);
   font-weight: 300;
@@ -656,8 +618,6 @@ footer p { margin: 0; }
   margin: 24px 0 0;
 }
 
-/* Grande image de couverture */
-/* format panoramique 16/9, en noir et blanc */
 .detail-couverture {
   aspect-ratio: 16 / 9;
   object-fit: cover;
@@ -666,13 +626,10 @@ footer p { margin: 0; }
   margin-bottom: 80px;
 }
 
-/* Texte d'introduction : le premier paragraphe est l'accroche */
-/* max-width limite la largeur du texte pour qu'il reste agréable à lire */
 .detail-intro { max-width: 720px; margin-bottom: 140px; }
 
 .detail-intro p { margin: 0 0 22px; color: var(--gris); }
 
-/* first-child : seulement le premier paragraphe, qui est en grand, italique et en noir */
 .detail-intro p:first-child {
   font-family: var(--serif);
   font-style: italic;
@@ -682,42 +639,33 @@ footer p { margin: 0; }
   margin-bottom: 30px;
 }
 
-/* Galerie du projet : colonnes, chaque photo garde ses proportions */
-/* espace sous le titre de section (Galerie, Dossiers) */
 .detail-page .section-titre { margin-bottom: 50px; }
 
-/* le texte est réparti en 2 colonnes, comme dans un magazine, ce qui donne un effet de mosaïque */
 .galerie-projet {
   column-count: 2;
   column-gap: 30px;
   margin-bottom: 140px;
 }
 
-/* break-inside: avoid empêche une photo d'être coupée en deux entre deux colonnes */
 .galerie-projet figure {
   break-inside: avoid;
   margin-bottom: 30px;
 }
 
-/* height: auto : la photo garde ses proportions d'origine, sans être recadrée */
 .galerie-projet figure img {
   height: auto;
   background: var(--creme-fonce);
 }
 
-/* Liste des dossiers à télécharger */
-/* on enlève les puces de la liste, et on ajoute une ligne en bas */
 .dossiers-liste {
   list-style: none;
   margin: 0 0 140px;
   padding: 0;
-  border-bottom: 1px solid var(--gris);
+  border-bottom: 1px solid var(--olive);
 }
 
-/* chaque dossier a une ligne au-dessus, ce qui crée les séparations entre eux */
-.dossiers-liste li { border-top: 1px solid var(--gris); }
+.dossiers-liste li { border-top: 1px solid var(--olive); }
 
-/* le lien : le nom du dossier à gauche, le format à droite */
 .dossiers-liste a {
   display: flex;
   justify-content: space-between;
@@ -730,10 +678,8 @@ footer p { margin: 0; }
   transition: padding-left 0.4s;
 }
 
-/* au survol, le texte se décale un peu vers la droite */
 .dossiers-liste a:hover { padding-left: 20px; }
 
-/* le format (PDF ↗) en petit, en gris et en majuscules */
 .dossier-format {
   font-family: var(--sans);
   font-size: 0.7rem;
@@ -742,14 +688,12 @@ footer p { margin: 0; }
   color: var(--gris);
 }
 
-/* Navigation projet précédent / suivant */
-/* les deux liens sont aux extrémités, avec une ligne au-dessus */
 .detail-nav {
   display: flex;
   justify-content: space-between;
   gap: 30px;
   padding-top: 40px;
-  border-top: 1px solid var(--noir);
+  border-top: 1px solid var(--olive);
 }
 
 .detail-nav a {
@@ -761,55 +705,44 @@ footer p { margin: 0; }
 
 .detail-nav a:hover { text-decoration: underline; text-underline-offset: 6px; }
 
-/* Téléphone : adaptation aux petits écrans (toujours à la fin du fichier) */
-/* ces règles ne s'appliquent que si l'écran fait 800px de large ou moins */
+/* Téléphone : toujours à la fin du fichier */
 @media (max-width: 800px) {
-  /* l'en-tête et le menu sont plus serrés */
-    /* l'en-tête est plus serré, et tout reste sur une seule ligne */
   body > header {
     padding: 20px;
-    flex-wrap: nowrap;              /* le logo et le menu ne passent jamais à la ligne */
-    align-items: center;            /* le logo et les liens sont au même niveau vertical */
+    flex-wrap: nowrap;
+    align-items: center;
   }
 
-  /* les liens sont plus petits, moins espacés, et ne se coupent pas sur deux lignes */
   body > header a {
     font-size: 0.62rem;
     letter-spacing: 0.12em;
-    white-space: nowrap;            /* un lien comme "À propos" reste sur une seule ligne */
+    white-space: nowrap;
   }
 
-  /* le logo est réduit pour laisser de la place au menu (le !important écrase la règle du logo plus haut) */
   .logo { font-size: 1.1rem !important; letter-spacing: 0.05em !important; }
 
-  /* le menu : les 4 liens côte à côte, alignés */
   nav {
     display: flex;
     align-items: center;
-    gap: 12px;                      /* espace entre les liens */
+    gap: 12px;
   }
 
-  /* on enlève l'ancienne marge, remplacée par le gap juste au-dessus */
   nav a { margin-left: 0; }
-  /* les marges sur les côtés sont réduites */
+
   .hero, .portfolio, .apropos { padding-left: 20px; padding-right: 20px; }
 
-  /* la galerie passe en une seule colonne, et on annule les décalages des photos (!important force la règle) */
   .galerie { display: flex; flex-direction: column; gap: 40px; }
   .galerie figure { margin-top: 0 !important; }
 
-  /* la section À propos passe en une colonne : portrait au-dessus, texte en dessous */
   .apropos { grid-template-columns: 1fr; gap: 60px; }
-  /* le cadre derrière le portrait est moins décalé pour ne pas dépasser de l'écran */
   .portrait::before { left: -12px; top: 12px; }
 
-  /* Page projets : marges réduites et une seule colonne */
+  /* Page projets : une seule colonne d'encarts, un peu moins de marge intérieure */
   .projets-page { padding: 140px 20px 100px; }
-  .projets-liste { grid-template-columns: 1fr; }
-  /* le petit mot (Origine, Type) prend toute la largeur, donc les boutons passent en dessous */
+  .projets-liste { grid-template-columns: 1fr; gap: 36px; }
+  .projet { padding: 32px 22px 36px; }
   .filtres::before { width: 100%; }
 
-  /* Page de détail : une seule colonne de photos */
   .detail-page { padding: 140px 20px 80px; }
   .detail-intro p:first-child { font-size: 1.5rem; }
   .galerie-projet { column-count: 1; }
