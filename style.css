@@ -1,21 +1,22 @@
 /* Couleurs et polices */
 /* les variables : on les définit une fois ici, puis on les réutilise partout avec var(--nom) */
 :root {
-  --noir: #24231b;                  /* noir chaud, pour le texte et les fonds sombres */
-  --creme: #f3f0e6;                 /* fond principal du site */
-  --creme-fonce: #e4e0d0;           /* fond secondaire */
+  --noir: #111111;                  /* le noir-gris d'origine */
+  --creme: #f4efe6;                 /* fond principal du site */
+  --creme-fonce: #e6dfd2;           /* fond secondaire */
   --papier: #faf8f2;                /* blanc cassé des encarts */
-  --gris: #6e6b5c;                  /* gris chaud pour les textes discrets */
-  --olive: #6c6c4c;                 /* vert olive de l'inspiration */
-  --olive-fonce: #4f503a;           /* olive plus sombre (contact, survols) */
-  --rose: #c48f84;                  /* rose poudré pour les numéros */
+  --gris: #6b665e;                  /* gris chaud pour les textes discrets */
+
+  /* ces 3 noms sont gardés pour ne rien casser, mais ils reprennent les anciennes couleurs */
+  --olive: #111111;                 /* cadres et badges : noir */
+  --olive-fonce: #111111;           /* survols : noir */
+  --rose: #6b665e;                  /* numéros : gris, comme avant */
 
   --nom-prenom: 'Cormorant Garamond', serif;    /* police de « Inea » */
-  --nom-famille: 'Cormorant Garamond', serif;   /* police de « Civaux » : change seulement cette ligne pour tester une autre */
+  --nom-famille: 'Cormorant Garamond', serif;   /* police de « Civaux » */
   --serif: 'Cormorant Garamond', serif;         /* titres */
   --sans: 'Jost', sans-serif;                   /* texte courant */
 }
-
 /* Réglages généraux */
 * { box-sizing: border-box; }
 
@@ -242,7 +243,7 @@ figcaption {
 
 /* 03 Contact : fond vert olive foncé */
 .contact {
-  background: var(--olive-fonce);
+  background: var(--noir);
   color: var(--creme);
   text-align: center;
   padding: 160px 20px;
@@ -354,7 +355,7 @@ footer {
   font-size: 0.7rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  border-top: 1px solid #2f2e24;
+    border-top: 1px solid #2a2a2a;
 }
 
 footer p { margin: 0; }
@@ -372,8 +373,7 @@ footer p { margin: 0; }
   align-items: center;
   justify-content: center;
   padding: 40px 20px;
-  background: rgba(36, 35, 27, 0.96);
-  cursor: zoom-out;
+    background: rgba(17, 17, 17, 0.96);
 }
 
 .lightbox.ouverte { display: flex; }
