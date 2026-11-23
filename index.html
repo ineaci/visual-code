@@ -3,9 +3,7 @@
 <!-- j' indique au navigateur que c'est une page HTML, et que le site est en français -->
 <html lang="fr">
 
-<!-- ============================================ -->
 <!-- CONFIGURATION DE LA PAGE                     -->
-<!-- ============================================ -->
 <head>
   <!-- permet d'afficher correctement les accents et les caractères spéciaux -->
   <meta charset="UTF-8">
@@ -29,9 +27,8 @@
 <!-- tout ce qui est dans le body est ce qu'on voit à l'écran -->
 <body>
 
-  <!-- ============================================ -->
   <!-- EN-TÊTE : logo et menu de navigation         -->
-  <!-- ============================================ -->
+->
   <header>
     <!-- mon logo en haut à gauche, un clic ramène tout en haut de la page -->
     <a href="#top" class="logo">Inea.C</a>
@@ -45,9 +42,9 @@
     </nav>
   </header>
 
-  <!-- ============================================ -->
+ 
   <!-- ACCUEIL : grand titre avec mon nom           -->
-  <!-- ============================================ -->
+ 
   <!-- le id="top" sert de point d'arrivée pour le lien du logo -->
   <section class="hero" id="top">
     <!-- petite ligne au-dessus du titre qui dit qui je suis et où -->
@@ -60,9 +57,9 @@
     <span class="scroll">Défiler ↓</span>
   </section>
 
-  <!-- ============================================ -->
+
   <!-- 01 PORTFOLIO : galerie de mes photos         -->
-  <!-- ============================================ -->
+ 
   <!-- le id="portfolio" correspond au lien "Portfolio" du menu -->
   <section class="portfolio" id="portfolio">
 
@@ -87,9 +84,9 @@
     </div>
   </section>
 
-  <!-- ============================================ -->
+  
   <!-- 02 À PROPOS : qui je suis, mon parcours      -->
-  <!-- ============================================ -->
+  
   <!-- le id="apropos" correspond au lien "À propos" du menu -->
   <section class="apropos" id="apropos">
 
@@ -123,9 +120,9 @@
     </div>
   </section>
 
-  <!-- ============================================ -->
+  
   <!-- 03 CONTACT : email, formulaire, CV, réseaux  -->
-  <!-- ============================================ -->
+ 
   <!-- le id="contact" correspond au lien "Contact" du menu -->
   <section class="contact" id="contact">
     <span class="numero">03</span>
@@ -139,7 +136,7 @@
     <!-- Formulaire de contact -->
     <!-- quand le visiteur clique sur "Envoyer", les infos partent vers le service Formspree, qui me les transmet par mail -->
     <form class="formulaire" action="https://formspree.io/f/VOTRE_CODE" method="POST">
-      <!-- champ pour le nom (obligatoire grâce à "required") -->
+      <!-- champ pour le nom -->
       <input type="text" name="nom" placeholder="Votre nom" required>
       <!-- champ pour l'email, le navigateur vérifie que le format est bon -->
       <input type="email" name="email" placeholder="Votre email" required>
@@ -160,21 +157,20 @@
     </div>
   </section>
 
-  <!-- ============================================ -->
+ 
   <!-- PIED DE PAGE : mentions de copyright         -->
-  <!-- ============================================ -->
+  
   <footer>
     <p>© 2026 Inea Civaux — Tous droits réservés</p>
   </footer>
 
-  <!-- ============================================ -->
-  <!-- VISIONNEUSE : photo agrandie au clic         -->
-  <!-- ============================================ -->
-  <!-- cette boîte est cachée au départ, elle s'affiche quand on clique sur une photo de la galerie -->
+  <!-- photo agrandie quand on clique         -->
+  
+  
   <div class="lightbox" id="lightbox">
-    <!-- l'image agrandie (vide au départ, le JavaScript la remplit au clic) -->
+  
     <img src="" alt="">
-    <!-- la légende de la photo agrandie (remplie aussi par le JavaScript) -->
+    
     <p class="lightbox-legende"></p>
     <!-- le bouton pour fermer la photo agrandie -->
     <button class="lightbox-fermer" aria-label="Fermer">Fermer ✕</button>

@@ -1,13 +1,13 @@
-
+/* cette page est la page projets*/
 
 /* 1. On lit quel projet est demandé dans l'adresse */
-/* on récupère la partie de l'adresse après le "?" (ici : id=projet-1) */
+
 const parametres = new URLSearchParams(window.location.search);
-/* on extrait juste la valeur de "id", par exemple "projet-1" */
+
 const idDemande = parametres.get('id');
-/* on cherche à quelle place se trouve ce projet dans la liste PROJETS (renvoie -1 s'il n'existe pas) */
+
 const position = PROJETS.findIndex(function (p) { return p.id === idDemande; });
-/* on repère la zone vide de la page (le <main> du HTML) pour pouvoir la remplir plus tard */
+
 const zoneDetail = document.getElementById('projet-detail');
 
 /* 2. Si le projet n'existe pas : message + retour */
@@ -43,7 +43,7 @@ if (position === -1) {
   }
 
   /* 5. Galerie de photos (seulement s'il y en a) */
-  /* la galerie est vide par défaut, on la remplit seulement si le projet a des photos */
+  /* la galerie est vide par défaut */
   let galerie = '';
   if (p.photos && p.photos.length > 0) {
     /* on ajoute d'abord le titre "Galerie" numéroté, puis les photos juste après */
