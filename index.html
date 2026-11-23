@@ -1,33 +1,45 @@
 
 <!DOCTYPE html>
+<!-- j' indique au navigateur que c'est une page HTML, et que le site est en français -->
 <html lang="fr">
 
 <!-- ============================================ -->
-<!-- CONFIGURATION DE LA PAGE          -->
+<!-- CONFIGURATION DE LA PAGE                     -->
 <!-- ============================================ -->
 <head>
+  <!-- permet d'afficher correctement les accents et les caractères spéciaux -->
   <meta charset="UTF-8">
+  <!-- adapte la page à la taille de l'écran (important pour le téléphone) -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- le titre s'affiche dans l'onglet du navigateur -->
   <title>Inea Civaux — Photographe</title>
 
-  <!-- Polices élégantes (Google Fonts) -->
+  <!-- Polices : Bodoni Moda (mon nom), Cormorant Garamond (titres), Jost (texte) -->
+  <!-- ces deux lignes préparent la connexion à Google Fonts pour que les polices se chargent plus vite -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+  <!-- on télécharge vraiment les 3 polices depuis Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;1,6..96,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400&display=swap" rel="stylesheet">
 
   <!-- Lien vers le fichier de style -->
+  <!-- cette ligne relie la page à style.css, qui gère les couleurs, la mise en page, tout ce qui est esthétique -->
   <link rel="stylesheet" href="style.css">
 </head>
 
+<!-- tout ce qui est dans le body est ce qu'on voit à l'écran -->
 <body>
 
   <!-- ============================================ -->
   <!-- EN-TÊTE : logo et menu de navigation         -->
   <!-- ============================================ -->
   <header>
+    <!-- mon logo en haut à gauche, un clic ramène tout en haut de la page -->
     <a href="#top" class="logo">Inea.C</a>
+    <!-- le menu : chaque lien fait défiler la page jusqu'à la bonne section -->
     <nav>
       <a href="#portfolio">Portfolio</a>
+      <!-- celui-ci ouvre une autre page, projets.html -->
+      <a href="projets.html">Projets</a>
       <a href="#apropos">À propos</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -36,19 +48,26 @@
   <!-- ============================================ -->
   <!-- ACCUEIL : grand titre avec mon nom           -->
   <!-- ============================================ -->
+  <!-- le id="top" sert de point d'arrivée pour le lien du logo -->
   <section class="hero" id="top">
+    <!-- petite ligne au-dessus du titre qui dit qui je suis et où -->
     <p class="eyebrow">Photographe — Avignon</p>
+    <!-- le grand titre : le <br> saute une ligne, et <em> met "Civaux" en italique -->
     <h1>Inea<br><em>Civaux</em></h1>
+    <!-- ma petite phrase de présentation -->
     <p class="hero-note">Le monde à travers mes yeux</p>
+    <!-- indication pour inviter le visiteur à descendre -->
     <span class="scroll">Défiler ↓</span>
   </section>
 
   <!-- ============================================ -->
   <!-- 01 PORTFOLIO : galerie de mes photos         -->
   <!-- ============================================ -->
+  <!-- le id="portfolio" correspond au lien "Portfolio" du menu -->
   <section class="portfolio" id="portfolio">
 
     <!-- Titre de la section -->
+    <!-- le numéro 01 et le mot "Portfolio" sont regroupés dans cette div -->
     <div class="section-titre">
       <span class="numero">01</span>
       <h2>Portfolio</h2>
@@ -56,6 +75,9 @@
 
     <!-- Galerie : les 6 photos avec leurs légendes -->
     <div class="galerie">
+      <!-- chaque photo est dans une <figure> : l'image (img) + son titre (figcaption) -->
+      <!-- les classes p1 à p6 permettent au CSS de placer chaque photo différemment -->
+      <!-- le "alt" décrit la photo pour l'accessibilité et si l'image ne charge pas -->
       <figure class="p1"><img src="images/photo1.jpg" alt="Photo 1"><figcaption>Paris</figcaption></figure>
       <figure class="p2"><img src="images/photo2.jpg" alt="Photo 2"><figcaption>Zoe</figcaption></figure>
       <figure class="p3"><img src="images/photo3.jpg" alt="Photo 3"><figcaption>Commères</figcaption></figure>
@@ -68,14 +90,17 @@
   <!-- ============================================ -->
   <!-- 02 À PROPOS : qui je suis, mon parcours      -->
   <!-- ============================================ -->
+  <!-- le id="apropos" correspond au lien "À propos" du menu -->
   <section class="apropos" id="apropos">
 
     <!-- Mon portrait -->
+    <!-- la photo de moi, placée d'un côté de la section -->
     <div class="portrait">
       <img src="images/portrait.jpg" alt="Portrait d'Inea Civaux">
     </div>
 
     <!-- Mon texte de présentation -->
+    <!-- tout le texte est regroupé de l'autre côté, à côté du portrait -->
     <div class="texte">
 
       <!-- Titre de la section -->
@@ -85,12 +110,15 @@
       </div>
 
       <!-- Phrase d'accroche -->
+      <!-- la phrase mise en avant, qui résume mon approche de la photo -->
       <p class="accroche">Transmettre la réalité des choses, mais avec mon œil.</p>
 
       <!-- Mon histoire -->
+      <!-- ici je raconte d'où je viens et comment j'ai commencé la photo -->
       <p>Je m'appelle Inea, j'ai grandi à Lyon, là où j'ai commencé à mettre en avant la réalité comme je la voyais vraiment. J'ai commencé à 4 ans avec un appareil Hello Kitty, à prendre en photo mes modèles : ma maman, mon frère... Aujourd'hui, Hello Kitty s'est transformée en mon Nikon D5100, il ne me quitte jamais.</p>
 
       <!-- Mes études et mon projet -->
+      <!-- ici je parle de mes études et de ce que je veux faire plus tard -->
       <p>Étudiante en L3 Culture et Communication, je me destine à un master Mode et Communication, tourné vers le visuel, le design et l'artistique. La photographie est pour moi un langage : une façon de regarder, de raconter et de créer.</p>
     </div>
   </section>
@@ -98,25 +126,35 @@
   <!-- ============================================ -->
   <!-- 03 CONTACT : email, formulaire, CV, réseaux  -->
   <!-- ============================================ -->
+  <!-- le id="contact" correspond au lien "Contact" du menu -->
   <section class="contact" id="contact">
     <span class="numero">03</span>
+    <!-- le titre de la section, avec "ensemble" en italique grâce à <em> -->
     <h2>Travaillons <em>ensemble</em></h2>
 
     <!-- Bouton email -->
+    <!-- le "mailto:" ouvre directement la messagerie du visiteur avec mon adresse déjà remplie -->
     <a href="mailto:ineaci@gmail.com" class="bouton">ineaci@gmail.com</a>
 
     <!-- Formulaire de contact -->
+    <!-- quand le visiteur clique sur "Envoyer", les infos partent vers le service Formspree, qui me les transmet par mail -->
     <form class="formulaire" action="https://formspree.io/f/VOTRE_CODE" method="POST">
+      <!-- champ pour le nom (obligatoire grâce à "required") -->
       <input type="text" name="nom" placeholder="Votre nom" required>
+      <!-- champ pour l'email, le navigateur vérifie que le format est bon -->
       <input type="email" name="email" placeholder="Votre email" required>
+      <!-- grande zone de texte pour le message, de 3 lignes de hauteur -->
       <textarea name="message" rows="3" placeholder="Votre message" required></textarea>
+      <!-- le bouton qui envoie le formulaire -->
       <button type="submit" class="bouton">Envoyer</button>
     </form>
 
     <!-- Lien vers mon CV -->
+    <!-- target="_blank" ouvre le PDF dans un nouvel onglet -->
     <p class="cv"><a href="cv-inea-civaux.pdf" target="_blank">Télécharger mon CV (PDF)</a></p>
 
     <!-- Lien vers mon compte Instagram -->
+    <!-- s'ouvre aussi dans un nouvel onglet pour que le visiteur ne quitte pas mon site -->
     <div class="reseaux">
       <a href="https://www.instagram.com/macam_etmoi" target="_blank">Instagram @macam_etmoi</a>
     </div>
@@ -132,13 +170,18 @@
   <!-- ============================================ -->
   <!-- VISIONNEUSE : photo agrandie au clic         -->
   <!-- ============================================ -->
+  <!-- cette boîte est cachée au départ, elle s'affiche quand on clique sur une photo de la galerie -->
   <div class="lightbox" id="lightbox">
+    <!-- l'image agrandie (vide au départ, le JavaScript la remplit au clic) -->
     <img src="" alt="">
+    <!-- la légende de la photo agrandie (remplie aussi par le JavaScript) -->
     <p class="lightbox-legende"></p>
+    <!-- le bouton pour fermer la photo agrandie -->
     <button class="lightbox-fermer" aria-label="Fermer">Fermer ✕</button>
   </div>
 
-  <!-- Lien vers le fichier de code interactif -->
+  <!-- Code interactif -->
+  <!-- on relie le fichier script.js, qui gère l'agrandissement des photos -->
   <script src="script.js"></script>
 
 </body>

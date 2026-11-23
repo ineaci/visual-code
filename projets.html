@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!-- on indique au navigateur que c'est une page HTML5, et que le site est en français -->
+<html lang="fr">
+
+<!-- Configuration de la page -->
+<head>
+  <!-- permet d'afficher correctement les accents et les caractères spéciaux -->
+  <meta charset="UTF-8">
+  <!-- adapte la page à la taille de l'écran (important pour le téléphone) -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- le titre qui s'affiche dans l'onglet du navigateur -->
+  <title>Projets — Inea Civaux</title>
+
+  <!-- Mêmes polices que la page d'accueil -->
+  <!-- ces deux lignes préparent la connexion à Google Fonts pour que les polices se chargent plus vite -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- ici on télécharge vraiment les 3 polices (Bodoni Moda, Cormorant Garamond, Jost) -->
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;1,6..96,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+
+  <!-- Même fichier de style que le reste du site -->
+  <!-- cette ligne relie la page à style.css, qui gère les couleurs, la mise en page, etc. -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<!-- tout ce qui est dans le body est ce qu'on voit à l'écran -->
+<body>
+
+  <!-- En-tête : les liens renvoient vers l'accueil -->
+  <header>
+    <!-- mon logo : un clic ramène à la page d'accueil (index.html) -->
+    <a href="index.html" class="logo">Inea.C</a>
+    <!-- le menu : comme on est sur une autre page, les liens passent par index.html pour retrouver les sections -->
+    <nav>
+      <a href="index.html#portfolio">Portfolio</a>
+      <!-- celui-ci ramène sur la page actuelle -->
+      <a href="projets.html">Projets</a>
+      <a href="index.html#apropos">À propos</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Projets : titre, filtres et liste -->
+  <!-- la zone principale de la page -->
+  <main class="projets-page">
+
+    <!-- Titre de la page -->
+    <!-- le tiret remplace le numéro de section, car cette page n'est pas numérotée -->
+    <div class="section-titre">
+      <span class="numero">—</span>
+      <h2>Projets</h2>
+    </div>
+
+    <!-- petite phrase qui présente la page -->
+    <p class="projets-intro">Mes projets personnels et mes travaux de fac.</p>
+
+    <!-- Filtres : les boutons sont créés automatiquement par projets.js -->
+    <!-- ces deux zones sont vides dans le HTML : projets.js y ajoute les boutons pour trier par origine et par type -->
+    <!-- le data-etiquette est le petit mot affiché devant chaque rangée de boutons -->
+    <div class="filtres" id="filtres-origine" data-etiquette="Origine"></div>
+    <div class="filtres" id="filtres-type" data-etiquette="Type"></div>
+
+    <!-- Liste des projets : les cartes sont créées automatiquement
+         à partir du fichier projets-data.js -->
+    <!-- cette zone est vide aussi : projets.js y crée une carte par projet -->
+    <div class="projets-liste" id="projets-liste"></div>
+  </main>
+
+  <!-- Pied de page -->
+  <footer>
+    <p>© 2026 Inea Civaux — Tous droits réservés</p>
+  </footer>
+
+  <!-- ORDRE IMPORTANT : les données, puis les cartes, puis les effets -->
+  <!-- d'abord les données : la liste de tous mes projets -->
+  <script src="projets-data.js"></script>
+  <!-- ensuite projets.js, qui utilise ces données pour créer les filtres et les cartes -->
+  <script src="projets.js"></script>
+  <!-- enfin script.js, qui ajoute les effets sur le contenu déjà créé -->
+  <script src="script.js"></script>
+
+</body>
+</html>
