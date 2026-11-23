@@ -45,6 +45,7 @@ img { display: block; width: 100%; }
 
 /* En-tête : logo et menu de navigation */
 /* mix-blend-mode : le texte s'inverse selon le fond (noir sur crème, crème sur noir) */
+body > header {
   position: fixed;                  /* l'en-tête reste collé en haut quand on descend */
   top: 0; left: 0; right: 0;        /* il prend toute la largeur de l'écran */
   z-index: 10;                      /* il passe au-dessus des autres éléments */
@@ -764,8 +765,32 @@ footer p { margin: 0; }
 /* ces règles ne s'appliquent que si l'écran fait 800px de large ou moins */
 @media (max-width: 800px) {
   /* l'en-tête et le menu sont plus serrés */
-  body > header { padding: 20px; }
-  nav a { margin-left: 18px; }
+    /* l'en-tête est plus serré, et tout reste sur une seule ligne */
+  body > header {
+    padding: 20px;
+    flex-wrap: nowrap;              /* le logo et le menu ne passent jamais à la ligne */
+    align-items: center;            /* le logo et les liens sont au même niveau vertical */
+  }
+
+  /* les liens sont plus petits, moins espacés, et ne se coupent pas sur deux lignes */
+  body > header a {
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    white-space: nowrap;            /* un lien comme "À propos" reste sur une seule ligne */
+  }
+
+  /* le logo est réduit pour laisser de la place au menu (le !important écrase la règle du logo plus haut) */
+  .logo { font-size: 1.1rem !important; letter-spacing: 0.05em !important; }
+
+  /* le menu : les 4 liens côte à côte, alignés */
+  nav {
+    display: flex;
+    align-items: center;
+    gap: 12px;                      /* espace entre les liens */
+  }
+
+  /* on enlève l'ancienne marge, remplacée par le gap juste au-dessus */
+  nav a { margin-left: 0; }
   /* les marges sur les côtés sont réduites */
   .hero, .portfolio, .apropos { padding-left: 20px; padding-right: 20px; }
 
